@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   
   get '/login' => 'sessions#new'  
   get '/register' => 'users#new'
+  get '/logout' => 'sessions#destroy'
 
   resources :sessions
 
