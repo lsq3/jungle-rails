@@ -1,27 +1,14 @@
 <section class="orders-show">
 
-  <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
-  </header>
-
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
-
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
-
-</section>
-
-
-
-<section class="cart-show">
-
+  
   <header class="page-header">
     <h1>Your Order Summary</h1>
     <h4>Order #<%= @order.id %></h4>
-    <h4>Order #<%= @order.line_items %></h4>
   </header>
-
+  
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -33,9 +20,10 @@
         </tr>
       </thead>
       <tbody>
+        <% @order_total = 0 %>
         <% @order.line_items.each do |line_item| %>
-            <%= render 'item', product: line_item.product %>
-              <% end %>
+        <%= render 'item', product: line_item.product, line_item: line_item %>
+        <% end %>
       </tbody>
       <tfoot>
         <tr>
@@ -43,11 +31,12 @@
             TOTAL:
           </th>
           <th>
-            <%= humanized_money_with_symbol @cart_total %>
+            <%= humanized_money_with_symbol @order_total %>
           </th>
         </tr>
       </tfoot>
     </table>
   </div>
-
+  
 </section>
+<%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
