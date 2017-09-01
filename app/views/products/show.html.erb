@@ -21,7 +21,25 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dd><%= humanized_money_with_symbol @product.price %></dd>
+          <dt>Rating</dt>
+          <dd></dd>
+        </dl>
+        <dl class="dl-horizontal"></dl>
+        <dl class="dl-horizontal"><br></dl>
+        <dl class="dl-horizontal"></dl>
+        <dl class="dl-horizontal"></dl>
+        <dl class="dl-horizontal">
+          <dd><strong><h4>Reviews</h4></strong></dd>
+          <dd>
+            <hr>
+            <% @reviews.each do |review| %>
+            <p><strong>User #<%= review.user_id %>'s review of this product:</strong></p>
+            <p><%= review.description %></p>
+            <p><em>Rating:</em> <%= review.rating %>/5 stars</p>
+            <hr>
+            <% end %>
+          </dd>
         </dl>
       </div>
     </div>
