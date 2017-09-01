@@ -1,5 +1,11 @@
 <section class="cart-show">
 
+ <% if cart.size < 1 %>
+  <h1>It appears that your cart is currently empty!</h1>
+  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+ <% else %>
+
+
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
@@ -49,5 +55,7 @@
       <% end %>
     </div>
   </div>
+
+<% end %>
 
 </section>
