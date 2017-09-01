@@ -21,13 +21,15 @@ end
 
 # Let's do this ...
 
+puts "Creating some fake users"
+
 u1 = User.new({
   first_name: 'Sean',
   last_name: 'Quilty',
   email: 'sean@email.com',
   password: 'password',
   password_confirmation: 'password'      
-})
+}).save
 
 u2 = User.new({
   first_name: 'Rayray',
@@ -35,7 +37,7 @@ u2 = User.new({
   email: 'rayray@email.com',
   password: 'password',
   password_confirmation: 'password'   
-})
+}).save
 
 ## CATEGORIES
 
