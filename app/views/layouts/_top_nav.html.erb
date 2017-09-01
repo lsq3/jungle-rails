@@ -27,15 +27,16 @@
         </li>
       </ul>
       <ul class="nav navbar-brand"> 
-        <li>
           <% if current_user %>
-            Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout' %>
+            Signed in as <%= current_user.email %> | </ul> 
+            <ul class="nav navbar-brand"><%= link_to "Logout", '/logout' %> </ul>
                 <% else %>
-                  <%= link_to 'Login', '/login' %> | <%= link_to 'Register', '/register' %>
+                  <ul class="nav navbar-brand"><%= link_to 'Login', '/login' %> |</ul> 
+                  <ul class="nav navbar-brand"><%= link_to 'Register', '/register' %></ul>
           <% end %>
 
-        </li>
-      </ul>
+   
+      
 
       <ul class="nav navbar-nav navbar-right">
        <li class="dropdown">
