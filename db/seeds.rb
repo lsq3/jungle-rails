@@ -22,17 +22,17 @@ end
 # Let's do this ...
 
 u1 = User.new({
-  first_name: 'Sean'
-  last_name: 'Quilty'
-  email: 'sean@email.com'
+  first_name: 'Sean',
+  last_name: 'Quilty',
+  email: 'sean@email.com',
   password: 'password',
   password_confirmation: 'password'      
 })
 
 u2 = User.new({
-  first_name: 'Rayray'
-  last_name: 'Genius'
-  email: 'rayray@email.com'
+  first_name: 'Rayray',
+  last_name: 'Genius',
+  email: 'rayray@email.com',
   password: 'password',
   password_confirmation: 'password'   
 })
