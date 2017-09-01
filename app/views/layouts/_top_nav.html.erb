@@ -26,18 +26,16 @@
           </ul>
         </li>
       </ul>
+      <% if current_user %>
       <ul class="nav navbar-brand"> 
-          <% if current_user %>
-            Signed in as <%= current_user.email %> | </ul> 
-            <ul class="nav navbar-brand"><%= link_to "Logout", '/logout' %> </ul>
-                <% else %>
-                  <ul class="nav navbar-brand"><%= link_to 'Login', '/login' %> |</ul> 
-                  <ul class="nav navbar-brand"><%= link_to 'Register', '/register' %></ul>
-          <% end %>
+        Signed in as, <%= current_user.email %> | </ul> 
+      <ul class="nav navbar-brand"><%= link_to 'Logout', '/logout' %> </ul>
+        <% else %>
+      <ul class="nav navbar-brand"><%= link_to 'Login', '/login' %> |</ul> 
+      <ul class="nav navbar-brand"><%= link_to 'Register', '/register' %></ul>
+      <% end %>
 
-   
       
-
       <ul class="nav navbar-nav navbar-right">
        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
