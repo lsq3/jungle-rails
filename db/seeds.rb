@@ -21,6 +21,10 @@ end
 
 # Let's do this ...
 
+## Users
+
+User
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
