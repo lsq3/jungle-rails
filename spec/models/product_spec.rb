@@ -27,7 +27,7 @@ RSpec.describe Product, :type => :model do
     it "Should validate presence of price" do
       @p = Product.create(name: "bleh", price: nil, quantity: 10, category: @cat)
       @p.save
-      expect(@p).to be_invalid
+      expect(@p.errors.full_messages).to include "Price can't be blank"
       
       # @p = Product.create(price: 10, name: "bleh", quantity: 10, category: @cat)
       # expect(@p).to be_valid
@@ -36,7 +36,7 @@ RSpec.describe Product, :type => :model do
     it "Should validate presence of quantity" do
     @p = Product.create(name: "bleh", quantity: nil, price: 10, category: @cat)
     @p.save
-    expect(@p).to be_invalid
+    expect(@p.errors.full_messages).to include "Quantity can't be blank"
     
     # @p = Product.create(price: 10, name: "bleh", quantity: 10, category: @cat)
     # expect(@p).to be_valid
@@ -45,7 +45,7 @@ RSpec.describe Product, :type => :model do
     it "Should validate presence of category" do
     @p = Product.create(name: "bleh", price: 10, category: nil, quantity: 10)
     @p.save
-    expect(@p).to be_invalid
+    expect(@p.errors.full_messages).to include "Category can't be blank"
     
     # @p = Product.create(price: 10, name: "bleh", quantity: 10, category: @cat)
     # expect(@p).to be_valid
