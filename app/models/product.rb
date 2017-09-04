@@ -5,6 +5,8 @@ class Product < ActiveRecord::Base
 
   belongs_to :category
 
+  has_many :reviews, -> {order "created_at DESC"}
+
   validates :name, presence: true
   validates :price, presence: true
   validates :quantity, presence: true

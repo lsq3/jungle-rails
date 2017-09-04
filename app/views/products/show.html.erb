@@ -1,7 +1,10 @@
 <section class="products-show">
 
   <header class="page-header">
-    <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
+    <h1>
+      <%= link_to @product.category.name, @product.category %> &raquo;
+        <%= @product.name %>
+    </h1>
   </header>
 
   <article class="product-detail">
@@ -15,14 +18,70 @@
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
-          <dd><%= @product.name %></dd>
+          <dd>
+            <%= @product.name %>
+          </dd>
           <dt>Description</dt>
-          <dd><%= @product.description %></dd>
+          <dd>
+            <%= @product.description %>
+          </dd>
           <dt>Quantity</dt>
-          <dd><%= @product.quantity %></dd>
+          <dd>
+            <%= @product.quantity %>
+          </dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dd>
+            <%= humanized_money_with_symbol @product.price %>
+          </dd>
+          <dt>Rating</dt>
+          <dd>
+            <% if @product.reviews.count > 0 %>
+            <strong><%= @product.reviews.average(:rating).round(1) %></strong></dd>
+            <% else %>
+            <strong>Be the first to rate this product!</strong>
+            <% end %>
         </dl>
+        <dl class="dl-horizontal"></dl>
+
+
+        <hr>
+        <% if current_user %>
+          <div id="review-form" class="row">
+            <div class="col-sm-12">
+
+              <h3>Write a Customer Review</h3>
+              <%= form_for [@product, @review] do |form| %>
+
+                <div class="form-group">
+                  <%= form.label :description %>
+                    <%= form.text_area :description, rows: '4', class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= form.label :rating %>
+                    <%= form.select :rating, options_for_select([1,2,3,4,5]), class: 'form-control'%>
+                </div>
+                <%= form.submit 'Submit', class: 'btn btn-primary' %>
+
+                  <% end %>
+            </div>
+          </div>
+          <%end %>
+
+            <dl class="dl-horizontal">
+              <dd><strong><h4>Reviews</h4></strong></dd>
+              <dd>
+                <hr>
+                <% @product.reviews.each do |review| %>
+                  <p><strong>User #<%= review.user_id %>'s review of this product:</strong></p>
+                  <p>
+                    <%= review.description %>
+                  </p>
+                  <p><em>Rating:</em>
+                    <%= review.rating %>/5 stars</p>
+                  <hr>
+                  <% end %>
+              </dd>
+            </dl>
       </div>
     </div>
 

@@ -21,6 +21,24 @@ end
 
 # Let's do this ...
 
+puts "Creating some fake users"
+
+u1 = User.new({
+  first_name: 'Sean',
+  last_name: 'Quilty',
+  email: 'sean@email.com',
+  password: 'password',
+  password_confirmation: 'password'      
+}).save
+
+u2 = User.new({
+  first_name: 'Rayray',
+  last_name: 'Genius',
+  email: 'rayray@email.com',
+  password: 'password',
+  password_confirmation: 'password'   
+}).save
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -83,7 +101,6 @@ cat1.products.create!({
   price: 224.50
 })
 
-
 cat2.products.create!({
   name:  'Modern Skateboards',
   description: Faker::Hipster.paragraph(4),
@@ -132,5 +149,67 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+puts "Creating fake reviews..."
+
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
+Review.create!({
+  product_id: Product.first.id,
+  user_id: User.first.id,
+  description: Faker::Hipster.paragraph(1),
+  rating: rand(1...5)
+})
 
 puts "DONE!"
