@@ -34,7 +34,12 @@
             <%= humanized_money_with_symbol @product.price %>
           </dd>
           <dt>Rating</dt>
-          <dd><strong><%= @review_avg %></strong></dd>
+          <dd>
+            <% if @product.reviews.count > 0 %>
+            <strong><%= @product.reviews.average(:rating).round(1) %></strong></dd>
+            <% else %>
+            <strong>Be the first to rate this product!</strong>
+            <% end %>
         </dl>
         <dl class="dl-horizontal"></dl>
 
@@ -66,7 +71,7 @@
               <dd><strong><h4>Reviews</h4></strong></dd>
               <dd>
                 <hr>
-                <% @reviews.each do |review| %>
+                <% @product.reviews.each do |review| %>
                   <p><strong>User #<%= review.user_id %>'s review of this product:</strong></p>
                   <p>
                     <%= review.description %>
