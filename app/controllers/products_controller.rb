@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
     @reviews = Review.where(product_id: @product.id).order(created_at: :desc)
     @review_avg = Review.average(:rating).to_s
+    @review = Review.new
   end
 
   def create
