@@ -2,6 +2,18 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Screenshots
+#### Main Page
+![Main Page](https://github.com/lsq3/jungle-rails/blob/master/public/readme/main.png?raw=true)
+
+#### Product Description
+![Product Description](https://github.com/lsq3/jungle-rails/blob/master/public/readme/product-description.png?raw=true)
+
+#### Cart
+![Cart](https://github.com/lsq3/jungle-rails/blob/master/public/readme/cart-full.png?raw=true)
+
+#### Order Confirmation
+![Order Confirmation](https://github.com/lsq3/jungle-rails/blob/master/public/readme/order.png?raw=true)
 
 ## Setup
 
